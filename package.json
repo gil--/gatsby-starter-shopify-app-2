@@ -2,7 +2,7 @@
   "name": "gatsby-starter-shopify-app",
   "private": true,
   "description": "A GatsbyJS start to create a Shopify admin app",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Gil Greenberg <gilgreenberg@gmail.com>",
   "dependencies": {
     "@shopify/polaris": "^3.3.0",
