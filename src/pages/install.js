@@ -34,6 +34,7 @@ class InstallPage extends React.Component {
                         <FormLayout>
                             <TextField
                                 id="shop"
+                                name="shop"
                                 value={shop}
                                 onChange={this.handleChange('shop')}
                                 label="Shop Domain"
