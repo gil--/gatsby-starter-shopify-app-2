@@ -27,7 +27,7 @@ const AuthWrapper = ({children}) => {
     if (cookies.get('shop') && cookies.get('token')) {
         return children
     } else {
-        if (typeof window !== 'undefined') {
+        if (typeof window !== 'undefined' && window) {
             replace(`/install`)
         }
         return <></>

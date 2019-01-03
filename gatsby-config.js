@@ -1,3 +1,5 @@
+var proxy = require("http-proxy-middleware")
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Shopify App Starter`,
@@ -27,15 +29,26 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-plugin-netlify-functions`,
-      options: {
-        functionsSrc: `${__dirname}/src/functions`,
-        functionsOutput: `${__dirname}/functions`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-netlify-functions`,
+    //   options: {
+    //     functionsSrc: `${__dirname}/src/functions`,
+    //     functionsOutput: `${__dirname}/functions`,
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
   ],
+  developMiddleware: app => {
+    app.use(
+      "/.netlify/functions/",
+      proxy({
+        target: "http://localhost:7000",
+        pathRewrite: {
+          "/.netlify/functions/": "",
+        },
+      })
+    )
+  },
 }
