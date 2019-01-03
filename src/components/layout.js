@@ -29,9 +29,6 @@ const Layout = ({ children }) => (
     render={data => (
       <AppProvider linkComponent={CustomLinkComponent}>
         <Page title={data.site.siteMetadata.title}>
-          <Card sectioned>
-            <Button onClick={() => alert('Button clicked!')}>Example button</Button>
-          </Card>
           {children}
         </Page>
       </AppProvider>

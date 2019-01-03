@@ -1,27 +1,56 @@
 import React from 'react'
+import { Button, Card, Form, FormLayout, InlineError, TextField } from '@shopify/polaris';
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-const LoginPage = () => (
-    <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <div class="container">
-            <header>
-                <h1>Shopify Node App – Installation</h1>
-                <p class="subhead">
-                    <label for="shop">Enter your shop domain to log in or install this app.</label>
-                </p>
-            </header>
+class InstallPage extends React.Component {
+    state = {
+        shop: '',
+    };
 
-            <div class="container__form">
-                <form method="GET" action="/.netlify/functions/auth">
-                    <input type="text" name="shop" id="shop" placeholder="example.myshopify.com" />
-                    <button type="submit">Install</button>
-                </form>
-            </div>
-        </div>
-    </Layout>
-)
+    handleChange = (field) => {
+        return (value) => this.setState({ [field]: value });
+    }
 
-export default LoginPage
+    onSubmit = (event) => {
+        if (this.state.shop.length > 0) {
+            event.target.submit();
+        } else {
+            this.setState({
+                hasError: true
+            })
+        }
+    }
+
+    render() {
+        const { shop } = this.state;
+
+        return(
+            <Layout>
+                <SEO title="Install" />
+                <Card sectioned>
+                    <Form method="GET" onSubmit={this.onSubmit} action="/.netlify/functions/auth">
+                        <FormLayout>
+                            <TextField
+                                id="shop"
+                                value={shop}
+                                onChange={this.handleChange('shop')}
+                                label="Shop Domain"
+                                type="text"
+                                placeholder="example.myshopify.com"
+                                error={this.state.hasError &&  'Shop domain is required'}
+                                helpText={
+                                    <span>Enter your shop domain to log in or install this app.</span>
+                                }
+                            />
+                            <Button primary submit>Submit</Button>
+                        </FormLayout>
+                    </Form>
+                </Card>
+            </Layout>
+        )
+    }
+}
+
+export default InstallPage
