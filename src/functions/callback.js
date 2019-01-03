@@ -4,6 +4,7 @@ require('dotenv').config();
 var {
     SHOPIFY_APP_API_KEY,
     SHOPIFY_APP_SHARED_SECRET,
+    SHOPIFY_APP_URL
 } = process.env;
 
 exports.handler = function (event, context, callback) {
