@@ -1,16 +1,16 @@
-var ShopifyToken = require('shopify-token');
+import ShopifyToken from 'shopify-token';
 require('dotenv').config();
 
-var {
+const {
     SHOPIFY_APP_API_KEY,
     SHOPIFY_APP_SHARED_SECRET,
 } = process.env;
 
 exports.handler = function (event, context, callback) {
-    var { code, shop } = event.queryStringParameters;
+    const { code, shop } = event.queryStringParameters;
 
-    var shopifyToken = new ShopifyToken({
-        "redirectUri": `https://${event.headers.host}/.netlify/functions/callback`,
+    const shopifyToken = new ShopifyToken({
+        "redirectUri": `${SHOPIFY_APP_URL}/.netlify/functions/callback`,
         "sharedSecret": SHOPIFY_APP_SHARED_SECRET,
         "apiKey": SHOPIFY_APP_API_KEY,
         "scopes": "read_orders,write_orders"
