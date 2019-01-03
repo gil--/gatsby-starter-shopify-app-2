@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-starter-shopify-app",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A GatsbyJS start to create a Shopify admin app",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Gil Greenberg <gilgreenberg@gmail.com>",
   "dependencies": {
     "@shopify/polaris": "^3.3.0",
     "gatsby": "^2.0.76",
@@ -23,7 +23,11 @@
     "universal-cookie": "^3.0.7"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "gatsby-starter",
+    "serverless-shopify",
+    "shopify-app",
+    "gatsby-shopify"
   ],
   "license": "MIT",
   "scripts": {
@@ -38,9 +42,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/gil--/gatsby-start-shopify-app"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/gil--/gatsby-start-shopify-app/issues"
   }
 }
