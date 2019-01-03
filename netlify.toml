@@ -1,4 +1,6 @@
 [build]
+  publish = "public"
+  command = "npm run build"
   functions = "functions"
 [template.environment]
   SHOPIFY_APP_API_KEY = "SHOPIFY_APP_API_KEY"
