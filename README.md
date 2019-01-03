@@ -2,6 +2,8 @@
 
 Serverless Shopify App via Netlify Functions & GatsbyJS
 
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gil--/gatsby-starter-shopify-app)
+
 ## Features
 - Serverless via Netlify Functions
 - GatsbyJS Client

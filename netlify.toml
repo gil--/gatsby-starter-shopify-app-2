@@ -1,5 +1,7 @@
 [build]
-  functions = "functions"
+  publish = "public"
+  command = "npm run build && npm run build-server"
+  functions = "functions/dist"
 [template.environment]
   SHOPIFY_APP_API_KEY = "SHOPIFY_APP_API_KEY"
   SHOPIFY_APP_SHARED_SECRET = "SHOPIFY_APP_SHARED_SECRET"

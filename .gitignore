@@ -69,4 +69,4 @@ yarn-error.log
 .yarn-integrity
 
 # Compiled Netlify Functions
-/functions
+/functions/dist
