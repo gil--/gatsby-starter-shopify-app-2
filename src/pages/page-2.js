@@ -16,7 +16,6 @@ const SecondPage = () => (
     >
       <p>Showing a secondary page example...</p>
     </EmptyState>
-    <Link to="/">Go back to the homepage</Link>
   </Layout>
 )
 
