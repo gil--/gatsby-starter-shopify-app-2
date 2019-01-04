@@ -4,17 +4,17 @@ import Cookies from 'universal-cookie'
 
 const AuthWrapper = ({children}) => {
     const cookies = new Cookies();
+    const queryParams = window.location.search;
+    const urlParams = new URLSearchParams(queryParams);
     let shop = null;
     let token = null;
 
-    if (typeof window !== 'undefined' && window.location.search) {
-        const urlParams = new URLSearchParams(window.location.search);
+    if (typeof window !== 'undefined' && queryParams) {
         shop = urlParams.get('shop');
         token = urlParams.get('token');
     }
 
     if (shop && token) {
-
         cookies.set('shop', shop, { path: '/' });
         cookies.set('token', token, { path: '/' });
 
@@ -28,7 +28,11 @@ const AuthWrapper = ({children}) => {
         return children
     } else {
         if (typeof window !== 'undefined' && window) {
-            replace(`/install`)
+            if (urlParams.get('hmac')) {
+                replace(`/.netlify/functions/reauth${queryParams}`)
+            } else {
+                replace(`/install`)
+            }
         }
         return <></>
     }
