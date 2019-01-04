@@ -33,7 +33,7 @@ exports.handler = function (event, context, callback) {
             })
 
         }).catch((err) => {
-            //console.error(err.stack);
+            console.error(err.stack);
 
             callback(null, {
                 statusCode: 500,

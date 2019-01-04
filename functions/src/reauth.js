@@ -8,7 +8,8 @@ const {
 } = process.env;
 
 exports.handler = function (event, context, callback) {
-    const { code, shop } = event.queryStringParameters;
+    const { shop } = event.queryStringParameters;
+    let token = null;
 
     const shopifyToken = new ShopifyToken({
         "redirectUri": `${SHOPIFY_APP_URL}/.netlify/functions/callback`,
@@ -18,26 +19,17 @@ exports.handler = function (event, context, callback) {
     });
 
     if (shopifyToken.verifyHmac(event.queryStringParameters)) {
-        // Get permanent access token that will be used in the future to make API calls
-        shopifyToken.getAccessToken(shop, code).then((token) => {
-            console.log(`Generated token ${token} for shop ${shop}`);
-            //createApplicationCharge(req.query.shop, token, res);
-            callback(null, {
-                statusCode: 302,
-                headers: {
-                    Location: `/?token=${token}&shop=${shop}`,
-                    'Cache-Control': 'no-cache' // Disable caching of this response
-                },
-                body: '' // return body for local dev
-            })
-
-        }).catch((err) => {
-            console.error(err.stack);
-
-            callback(null, {
-                statusCode: 500,
-                body: 'Oops, something went wrong',
-            });
+        // TODO: Get token from DB and use here
+        // for now, return callback which will redirect to install...
+        token = '';
+        
+        callback(null, {
+            statusCode: 302,
+            headers: {
+                Location: `/?token=${token}&shop=${shop}`,
+                'Cache-Control': 'no-cache' // Disable caching of this response
+            },
+            body: '' // return body for local dev
         });
     } else {
         console.error('Error validating hmac');
