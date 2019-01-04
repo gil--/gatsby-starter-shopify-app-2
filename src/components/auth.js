@@ -3,7 +3,7 @@ import { replace } from 'gatsby'
 import Cookies from 'universal-cookie'
 
 const AuthWrapper = ({children}) => {
-    if (typeof window !== 'undefined' && queryParams) {
+    if (typeof window !== 'undefined') {
         const cookies = new Cookies();
         const queryParams = window.location.search;
         const urlParams = new URLSearchParams(queryParams);
