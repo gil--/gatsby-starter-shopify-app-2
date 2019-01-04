@@ -8,23 +8,23 @@ const AuthWrapper = ({children}) => {
         const queryParams = window.location.search;
         const urlParams = new URLSearchParams(queryParams);
         let shop = null;
-        let token = null;
+        let apiKey = null;
 
         shop = urlParams.get('shop');
-        token = urlParams.get('token');
+        apiKey = urlParams.get('apiKey');
 
-        if (shop && token) {
+        if (shop && apiKey) {
             cookies.set('shop', shop, { path: '/' });
-            cookies.set('token', token, { path: '/' });
+            cookies.set('apiKey', apiKey, { path: '/' });
 
             // this.setState({ 
             //     shop,
-            //     token
+            //     apiKey
             // });
         }
 
-        if (cookies.get('shop') && cookies.get('token')) {
-            return children
+        if (cookies.get('shop') && cookies.get('apiKey')) {
+            return React.cloneElement(children, { shop: cookies.get('shop'), apiKey: cookies.get('apiKey') })
         } else {
             if (urlParams.get('hmac')) {
                 window.location.href = `${window.location.origin}/.netlify/functions/reauth${queryParams}`

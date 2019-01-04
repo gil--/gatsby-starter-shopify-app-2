@@ -26,7 +26,7 @@ exports.handler = function (event, context, callback) {
             callback(null, {
                 statusCode: 302,
                 headers: {
-                    Location: `/?token=${token}&shop=${shop}`,
+                    Location: `/?apiKey=${SHOPIFY_APP_API_KEY}&shop=${shop}`,
                     'Cache-Control': 'no-cache' // Disable caching of this response
                 },
                 body: '' // return body for local dev

@@ -15,7 +15,7 @@ const CustomLinkComponent = ({ children, url, ...rest }) => {
   );
 };
 
-const Layout = ({ children }) => (
+const Layout = ({ children, shop, apiKey }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -27,7 +27,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <AppProvider linkComponent={CustomLinkComponent}>
+      <AppProvider shopOrigin={shop} apiKey={apiKey} linkComponent={CustomLinkComponent}>
         <Page title={data.site.siteMetadata.title}>
           {children}
         </Page>
