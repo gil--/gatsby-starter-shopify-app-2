@@ -20,7 +20,6 @@ exports.handler = function (event, context, callback) {
     if (shopifyToken.verifyHmac(event.queryStringParameters)) {
         // Get permanent access token that will be used in the future to make API calls
         shopifyToken.getAccessToken(shop, code).then((token) => {
-
             console.log(`Generated token ${token} for shop ${shop}`);
             //createApplicationCharge(req.query.shop, token, res);
             callback(null, {
@@ -33,7 +32,7 @@ exports.handler = function (event, context, callback) {
             })
 
         }).catch((err) => {
-            //console.error(err.stack);
+            console.error(err.stack);
 
             callback(null, {
                 statusCode: 500,
