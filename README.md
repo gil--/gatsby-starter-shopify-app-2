@@ -15,10 +15,9 @@ Serverless Shopify App via Netlify Functions & GatsbyJS
 
 ## Bugs
 - detect if iframe in admin and no cookies set, authorize but dont require installing again
-- fix install page design
-- fix env variables in ./netlify functions
 
 ## TODO - Feel free to make PRs
+- publish to npm
 - Add recurring billing support for paid apps
 - [Propagate url changes to browser url bar](https://github.com/Shopify/unite-react-node-app-workshop/blob/step5/bonus.md#step-8-getting-our-url-bar-to-update-mal) with `@shopify/react-shopify-app-route-propagator` or custom library.
 - Add Firebase RTDB to store installed stores and billing status via Netlify Functions? Or Firebase Functions...
