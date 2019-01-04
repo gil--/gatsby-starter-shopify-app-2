@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 const SecondPage = () => (
-  <Layout>
+  <Layout title="Page two">
     <SEO title="Page two" />
     <EmptyState
       heading="Page two"

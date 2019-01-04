@@ -8,7 +8,7 @@ import AuthWrapper from '../components/auth'
 
 const IndexPage = () => (
   <AuthWrapper>
-    <Layout>
+    <Layout title="Welcome!">
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <Card sectioned>
         <Heading>Welcome!</Heading>

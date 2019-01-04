@@ -15,7 +15,7 @@ const CustomLinkComponent = ({ children, url, ...rest }) => {
   );
 };
 
-const Layout = ({ children, shop, apiKey }) => (
+const Layout = ({ children, shop, apiKey, title }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -33,7 +33,7 @@ const Layout = ({ children, shop, apiKey }) => (
         linkComponent={CustomLinkComponent}
         forceRedirect={(process.env.NODE_ENV === 'development' ) ? false : true}
       >
-        <Page title={data.site.siteMetadata.title}>
+        <Page fullwidth title={title || data.site.siteMetadata.title}>
           {children}
         </Page>
       </AppProvider>
