@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql, Link } from 'gatsby'
-import { AppProvider, Button, Card, FooterHelp, Page } from '@shopify/polaris';
+import { AppProvider, Page } from '@shopify/polaris';
 import '@shopify/polaris/styles.css'
 
 const CustomLinkComponent = ({ children, url, ...rest }) => {
@@ -27,7 +27,12 @@ const Layout = ({ children, shop, apiKey }) => (
       }
     `}
     render={data => (
-      <AppProvider shopOrigin={shop} apiKey={apiKey} linkComponent={CustomLinkComponent}>
+      <AppProvider 
+        shopOrigin={shop} 
+        apiKey={apiKey} 
+        linkComponent={CustomLinkComponent}
+        forceRedirect={(process.env.NODE_ENV === 'development' ) ? false : true}
+      >
         <Page title={data.site.siteMetadata.title}>
           {children}
         </Page>

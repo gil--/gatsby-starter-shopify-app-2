@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { EmptyState } from '@shopify/polaris';
 
 import Layout from '../components/layout'

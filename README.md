@@ -12,6 +12,7 @@ Serverless Shopify App via Netlify Functions & GatsbyJS
 - ✅ Ability to Install App
 - ✅ [Shopify Polaris](https://github.com/Shopify/polaris-react) for UI
 - ✅ [Custom Link Component](https://polaris.shopify.com/components/structure/app-provider#navigation) to work with Gatsby Link (avoid page refresh and use React Router)
+- ✅ Prevent force redirect to Shopify admin iframe if in develop mode `<AppProvider forceRedirect={false}>`
 
 ## Bugs
 - 🐞 Rework serverless re-auth logic to use async/await instead of redirection. Should just return a JSON response instead of all the redirections for re-auth since no callback is needed.
