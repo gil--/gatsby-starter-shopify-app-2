@@ -27,7 +27,7 @@ const AuthWrapper = ({children}) => {
             return children
         } else {
             if (urlParams.get('hmac')) {
-                replace(`/.netlify/functions/reauth${queryParams}`)
+                window.location.href = `${window.location.origin}/.netlify/functions/reauth${queryParams}`
             } else {
                 replace(`/install`)
             }
